@@ -6,23 +6,75 @@ html {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background: rgb(174, 229, 243);
 }
 
-.mode-select:hover {
-  border: 0.4rem solid red;
+body {
+  background-color: rgb(174, 229, 243);
 }
 
-.mode-select img {
-  width: 15rem;
-  height: 15rem;
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.easy-mode {
+  position: relative;
+  width: 23rem;
+  height: 23rem;
   border: 0.4rem solid black;
   border-radius: 0.7rem;
+  left: 50%;
+  transform: translateX(-102%);
+}
+
+.img {
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  display: inline-block;
+}
+
+.hard-mode {
   position: relative;
-  left: 35%;
-  margin: 1rem;
+  width: 23rem;
+  height: 23rem;
+  border: 0.4rem solid black;
+  border-radius: 0.7rem;
+  left: 50%;
+  transform: translateY(-100%);
+}
+
+.img-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  transition: 0.3s ease;
+  user-select: none;
+}
+
+.img-overlay:hover {
+  opacity: 1;
+}
+
+.img-title {
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: white;
+}
+
+.img-description {
+  font-size: 2rem;
+  margin-top: 1rem;
 }
 
 h1 {
@@ -30,15 +82,67 @@ h1 {
   font-size: 5rem;
   text-decoration: underline;
   text-align: center;
-  padding: 2rem;
+  margin-top: 2rem;
 }
+
 h2 {
   font-size: 2rem;
   text-align: center;
-  padding: 1.5rem;
+  margin: 1.5rem;
 }
 
-label {
-  font-size: 1.8rem;
-  display: block;
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 9rem;
+  height: 5rem;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 3.4rem;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 4rem;
+  width: 4rem;
+  left: 0.5rem;
+  bottom: 0.5rem;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 4rem;
+}
+
+input:checked + .slider {
+  background-color: brown;
+}
+
+input:checked + .slider:before {
+  transform: translateX(4rem);
+}
+
+.toggle-time {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 40rem;
+}
+
+img.toggle-time {
+  position: absolute;
+  height: 6rem;
+  transform: translateX(-180%);
 }
