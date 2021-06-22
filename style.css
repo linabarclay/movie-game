@@ -1,0 +1,44 @@
+html {
+  font-size: 62.5%;
+}
+* {
+  font-family: "Gill Sans", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background: rgb(174, 229, 243);
+}
+
+.mode-select:hover {
+  border: 0.4rem solid red;
+}
+
+.mode-select img {
+  width: 15rem;
+  height: 15rem;
+  border: 0.4rem solid black;
+  border-radius: 0.7rem;
+  object-fit: cover;
+  display: inline-block;
+  position: relative;
+  left: 35%;
+  margin: 1rem;
+}
+
+h1 {
+  color: brown;
+  font-size: 5rem;
+  text-decoration: underline;
+  text-align: center;
+  padding: 2rem;
+}
+h2 {
+  font-size: 2rem;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+label {
+  font-size: 1.8rem;
+  display: block;
+}
