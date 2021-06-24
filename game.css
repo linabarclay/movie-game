@@ -1,0 +1,83 @@
+html {
+  font-size: 62.5%;
+}
+* {
+  font-family: "Gill Sans", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+::placeholder {
+  color: white;
+  opacity: 0.6;
+}
+
+body {
+  background-color: rgb(174, 229, 243);
+}
+
+h2 {
+  margin: 5rem 0rem 2rem 0rem;
+  font-size: 3rem;
+  text-align: center;
+}
+
+h3 {
+  position: absolute;
+  font-size: 4rem;
+  font-weight: lighter;
+  top: 68rem;
+  right: 50%;
+}
+
+#number-score {
+  left: 51%;
+  font-weight: bold;
+}
+
+.still {
+  min-height: 45rem;
+  max-height: 50rem;
+  max-width: 88.9rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  outline: 0.5rem solid white;
+  object-fit: cover;
+}
+
+#end-game-text {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 29rem;
+  color: white;
+  background-color: rgb(0, 0, 0, 0.6);
+  font-size: 6rem;
+  transition: 2s;
+}
+
+input {
+  position: absolute;
+  left: 50%;
+  top: 63rem;
+  transform: translateX(-50%);
+  width: 50rem;
+  height: 4rem;
+  padding: 1rem;
+  font-size: 2.2rem;
+  border: 0.2rem solid white;
+  border-radius: 0.4rem;
+  background-color: brown;
+  color: white;
+}
+
+.home img {
+  position: absolute;
+  height: 5rem;
+  top: 4rem;
+  left: 50%;
+  transform: translateX(-500%);
+}
