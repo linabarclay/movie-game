@@ -12,7 +12,11 @@ var revealAnswer = document.getElementById("skip");
 var countdown = document.getElementById("countdown");
 var endGameText = document.getElementById("end-game-text");
 
+var storedActiveDecades = []; //retrieved array from local storage
+var activeDecades = [];
 var stillsTracker = [];
+
+var validIndexes = []; //made as a global variable so that length can be used to check if tracker should be refreshed
 
 //disables enter key on text inputs
 window.addEventListener(
@@ -32,7 +36,7 @@ window.addEventListener(
   true
 );
 
-//functions
+//FUNCTIONS
 
 //decade select
 function setDecade(decade) {
@@ -41,12 +45,16 @@ function setDecade(decade) {
     unsetDecade(decade);
   } else if (!decade.classList.contains("selected")) {
     decade.classList.add("selected");
+    activeDecades.push(decade.id); // adds decade to active decades list
+    console.log(activeDecades);
+    localStorage.setItem("active-decades", JSON.stringify(activeDecades));
   }
 }
 
 function unsetDecade(decade) {
   decade.classList.remove("selected");
-  console.log(decade.classList);
+  activeDecades.splice(activeDecades.indexOf(decade.id), 1); // removes decade from active decades list
+  localStorage.setItem("active-decades", activeDecades);
 }
 
 //gets the movie name -- can be called by movieName.name
@@ -69,17 +77,32 @@ function newMovie(number) {
 }
 
 function startUp() {
+  storedActiveDecades = JSON.parse(localStorage.getItem("active-decades"));
   endGameText.classList.add("notransition");
   endGameText.style.opacity = "0";
-  var z = Math.floor(Math.random() * movieNames.length) + 1;
+  var z = getValidIndex();
   newMovie(z);
   stillsTracker.push(z);
-  console.log("index: " + z);
   console.log("tracker length: " + stillsTracker.length);
   console.log("total num movies: " + movieNames.length);
 }
 
-startUp();
+//gets random index of a movie from selected decades
+function getValidIndex() {
+  validIndexes = [];
+  for (var i = 0; i < storedActiveDecades.length; i++) {
+    var possibleMovies = movieNames.filter(
+      (movie) => movie.decade === storedActiveDecades[i]
+    );
+    possibleMovies.forEach((movie) => {
+      validIndexes.push(movie.number);
+    });
+  }
+  console.log(validIndexes);
+  var i = validIndexes[Math.floor(Math.random() * validIndexes.length)];
+  console.log(i);
+  return i;
+}
 
 //updates image tracker for new image
 function updateTracker() {
@@ -90,10 +113,8 @@ function updateTracker() {
       "Score: " + (score / 10) * 100 + "%";
     textInput.disabled = true;
   } else {
-    var i = Math.floor(Math.random() * movieNames.length) + 1;
-    console.log("index: " + i);
-    checkStillHistory(i);
-    console.log("tracker: " + stillsTracker.length);
+    var z = getValidIndex();
+    checkStillHistory(z);
   }
 }
 
@@ -106,16 +127,17 @@ function checkStillHistory(val) {
     newMovie(val);
     stillsTracker.push(val);
     textInput.value = "";
-  } else if (stillsTracker.length >= movieNames.length) {
-    stillsTracker = [];
+  } else if (stillsTracker.length >= validIndexes.length) {
+    stillsTracker = [val];
     newMovie(val);
-    stillsTracker.push(val);
     textInput.value = "";
   } else {
-    i = Math.floor(Math.random() * movieNames.length) + 1;
-    checkStillHistory(i);
+    var z = getValidIndex();
+    checkStillHistory(z);
   }
 }
+
+//EVENT HANDLERS
 
 //checks answer whenever a someone types
 textInput.onkeyup = function () {
@@ -154,9 +176,13 @@ document.getElementById("play-again").onclick = function () {
   textInput.value = "";
   endGameText.style.opacity = "0";
   textInput.disabled = false;
-  var z = Math.floor(Math.random() * movieNames.length) + 1;
+  z = getValidIndex();
   newMovie(z);
   stillsTracker.push(z);
   console.log("index = " + z);
   console.log("tracker: " + stillsTracker.length);
 };
+
+//function calls
+startUp();
+console.log(storedActiveDecades);
