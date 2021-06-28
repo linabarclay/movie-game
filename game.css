@@ -27,7 +27,7 @@ h3 {
   position: absolute;
   font-size: 4rem;
   font-weight: lighter;
-  top: 68rem;
+  top: 69.2rem;
   right: 50%;
 }
 
@@ -52,18 +52,31 @@ h3 {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 29rem;
+  top: 23rem;
   color: white;
   background-color: rgb(0, 0, 0, 0.6);
   font-size: 6rem;
   transition: 2s;
 }
 
-input {
+.notransition {
+  transition: none !important;
+}
+
+#play-again {
+  cursor: pointer;
+  color: rgb(174, 229, 243);
+  text-align: center;
+}
+
+.controls {
   position: absolute;
   left: 50%;
-  top: 63rem;
+  top: 65rem;
   transform: translateX(-50%);
+}
+input {
+  position: relative;
   width: 50rem;
   height: 4rem;
   padding: 1rem;
@@ -72,6 +85,29 @@ input {
   border-radius: 0.4rem;
   background-color: brown;
   color: white;
+}
+
+#skip {
+  position: absolute;
+  transform: translateY(-100%);
+  left: 102%;
+  height: 4rem;
+  width: 16rem;
+  font-size: 2rem;
+  padding: 0.2rem;
+  border-radius: 0.4rem;
+  border: 0.2rem solid brown;
+  background-color: white;
+  cursor: pointer;
+}
+
+#countdown {
+  position: absolute;
+  text-align: center;
+  font-size: 2rem;
+  top: 62.6rem;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .home img {

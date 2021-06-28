@@ -14,32 +14,105 @@
 
   <body>
     <h1>Lina's Movie Game</h1>
+    <h2>Choose Your Decade(s)</h2>
+    <div class="decade-selection">
+      <a
+        id="thirties"
+        href="javascript:void(0)"
+        onclick="setDecade(thirties);"
+        class="decade-select-individual"
+        >30s</a
+      >
+      <a
+        id="fourties"
+        href="javascript:void(0)"
+        onclick="setDecade(fourties);"
+        class="decade-select-individual"
+        >40s</a
+      >
+      <a
+        id="fifties"
+        href="javascript:void(0)"
+        onclick="setDecade(fifties);"
+        class="decade-select-individual"
+        >50s</a
+      >
+      <a
+        id="sixties"
+        href="javascript:void(0)"
+        onclick="setDecade(sixties);"
+        class="decade-select-individual"
+        >60s</a
+      >
+      <a
+        id="seventies"
+        href="javascript:void(0)"
+        onclick="setDecade(seventies);"
+        class="decade-select-individual"
+        >70s</a
+      >
+      <a
+        id="eighties"
+        href="javascript:void(0)"
+        onclick="setDecade(eighties);"
+        class="decade-select-individual"
+        >80s</a
+      >
+      <a
+        id="nineties"
+        href="javascript:void(0)"
+        onclick="setDecade(nineties);"
+        class="decade-select-individual"
+        >90s</a
+      >
+      <a
+        id="oughts"
+        href="javascript:void(0)"
+        onclick="setDecade(oughts);"
+        class="decade-select-individual"
+        >00s</a
+      >
+      <a
+        id="tens"
+        href="javascript:void(0)"
+        onclick="setDecade(tens);"
+        class="decade-select-individual"
+        >10s</a
+      >
+      <a
+        id="twenties"
+        href="javascript:void(0)"
+        onclick="setDecade(twenties);"
+        class="decade-select-individual"
+        >20s</a
+      >
+    </div>
     <h2>Choose Your Difficulty</h2>
 
     <div class="easy-mode">
-      <img class="img" src="/images/boohoo.jpeg" alt="weak" />
-      <div class="img-overlay">
-        <a href="/html/easy-mode.html">
+      <a href="/html/easy-mode.html">
+        <img class="img" src="/images/boohoo.jpeg" alt="weak" />
+        <div class="img-overlay">
           <div class="img-title">Easy Mode</div>
-        </a>
-        <p class="img-description">
-          "I've seen two movies, and one of them was Joker." <br />
-          <i>Multiple Choice</i>
-        </p>
-      </div>
+          <p class="img-description">
+            "I've seen two movies, and one of them was Joker." <br />
+            <i>Multiple Choice</i>
+          </p>
+        </div>
+      </a>
     </div>
 
     <div class="hard-mode">
-      <img class="img" src="/images/chad.jpeg" alt="chad" />
-      <div class="img-overlay">
-        <a href="/html/hard-mode.html">
+      <a href="/html/hard-mode.html">
+        <img class="img" src="/images/chad.jpeg" alt="chad" />
+        <div class="img-overlay">
           <div class="img-title">Cinephile Mode</div>
-        </a>
-        <p class="img-description">
-          For hardcore cinephiles only! <br />
-          <i>Type in the answer</i>
-        </p>
-      </div>
+          <p class="img-description">
+            For hardcore cinephiles only! <br />
+            <i>Type in the answer</i>
+          </p>
+        </div>
+      </a>
     </div>
 
     <div id="time-switch" class="toggle-time">
@@ -54,5 +127,7 @@
       src="/images/icons8-hourglass-96.png"
       alt="hourglass"
     />
+    <script type="application/javascript" src="/movies.js"></script>
+    <script type="application/javascript" src="/script.js"></script>
   </body>
 </html>
