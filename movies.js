@@ -22,12 +22,12 @@ var movieNames = [
   {
     number: 5,
     name: "the aviator",
-    decade: "oughts",
+    decade: "aughts",
   },
   {
     number: 6,
     name: "to have and have not",
-    decade: "fourties",
+    decade: "forties",
   },
   {
     number: 7,
@@ -72,17 +72,17 @@ var movieNames = [
   {
     number: 15,
     name: "adam's rib",
-    decade: "fourties",
+    decade: "forties",
   },
   {
     number: 16,
     name: "bend it like beckham",
-    decade: "oughts",
+    decade: "aughts",
   },
   {
     number: 17,
     name: "down with love",
-    decade: "oughts",
+    decade: "aughts",
   },
   {
     number: 18,
@@ -92,7 +92,7 @@ var movieNames = [
   {
     number: 19,
     name: "mildred pierce",
-    decade: "fourties",
+    decade: "forties",
   },
   {
     number: 20,
@@ -112,7 +112,7 @@ var movieNames = [
   {
     number: 23,
     name: "the incredibles",
-    decade: "oughts",
+    decade: "aughts",
   },
   {
     number: 24,
@@ -122,7 +122,7 @@ var movieNames = [
   {
     number: 25,
     name: "mulholland drive",
-    decade: "oughts",
+    decade: "aughts",
   },
   {
     number: 26,
@@ -177,7 +177,7 @@ var movieNames = [
   {
     number: 36,
     name: "far from heaven",
-    decade: "oughts",
+    decade: "aughts",
   },
   {
     number: 37,
@@ -187,7 +187,7 @@ var movieNames = [
   {
     number: 38,
     name: "mulholland drive",
-    decade: "oughts",
+    decade: "aughts",
   },
   {
     number: 39,
@@ -212,18 +212,18 @@ var movieNames = [
   {
     number: 43,
     name: "the devil wears prada",
-    decade: "oughts",
+    decade: "aughts",
   },
   {
     number: 44,
     name: "8 women",
     name_1: "8 femmes",
-    decade: "oughts",
+    decade: "aughts",
   },
   {
     number: 45,
     name: "rebecca",
-    decade: "fourties",
+    decade: "forties",
   },
   {
     number: 46,
@@ -238,12 +238,12 @@ var movieNames = [
   {
     number: 48,
     name: "rent",
-    decade: "oughts",
+    decade: "aughts",
   },
   {
     number: 49,
     name: "monster",
-    decade: "oughts",
+    decade: "aughts",
   },
   {
     number: 50,
@@ -254,7 +254,7 @@ var movieNames = [
   {
     number: 51,
     name: "billy elliot",
-    decade: "oughts",
+    decade: "aughts",
   },
   {
     number: 52,
@@ -279,12 +279,12 @@ var movieNames = [
   {
     number: 56,
     name: "debs",
-    decade: "oughts",
+    decade: "aughts",
   },
   {
     number: 57,
     name: "death proof",
-    decade: "oughts",
+    decade: "aughts",
   },
   {
     number: 58,
@@ -350,5 +350,516 @@ var movieNames = [
     number: 70,
     name: "what a way to go",
     decade: "sixties",
+  },
+  {
+    number: 71,
+    name: "20th century women",
+    decade: "tens",
+  },
+  {
+    number: 72,
+    name: "2001 a space odyssey",
+    decade: "sixties",
+  },
+  {
+    number: 73,
+    name: "a clockwork orange",
+    decade: "seventies",
+  },
+  {
+    number: 74,
+    name: "a woman is a woman",
+    name_1: "une femme est un femme",
+    decade: "sixties",
+  },
+  {
+    number: 75,
+    name: "alien",
+    decade: "seventies",
+  },
+  {
+    number: 76,
+    name: "all that jazz",
+    decade: "seventies",
+  },
+  {
+    number: 77,
+    name: "amadeus",
+    decade: "eighties",
+  },
+  {
+    number: 78,
+    name: "american honey",
+    decade: "tens",
+  },
+  {
+    number: 79,
+    name: "arrival",
+    decade: "tens",
+  },
+  {
+    number: 80,
+    name: "autumn sonata",
+    name_1: "hostsonaten",
+    decade: "seventies",
+  },
+  {
+    number: 81,
+    name: "before midnight",
+    decade: "tens",
+  },
+  {
+    number: 82,
+    name: "before sunset",
+    decade: "aughts",
+  },
+  {
+    number: 83,
+    name: "black panther",
+    decade: "tens",
+  },
+  {
+    number: 84,
+    name: "breakfast at tiffany's",
+    decade: "sixties",
+  },
+  {
+    number: 85,
+    name: "brokeback mountain",
+    decade: "aughts",
+  },
+  {
+    number: 86,
+    name: "captain marvel",
+    decade: "tens",
+  },
+  {
+    number: 87,
+    name: "citizen kane",
+    decade: "forties",
+  },
+  {
+    number: 88,
+    name: "cleo from 5 to 7",
+    name_1: "cleo de 5 a 7",
+    decade: "sixties",
+  },
+  {
+    number: 89,
+    name: "clueless",
+    decade: "nineties",
+  },
+  {
+    number: 90,
+    name: "contagion",
+    decade: "tens",
+  },
+  {
+    number: 91,
+    name: "desert hearts",
+    decade: "eighties",
+  },
+  {
+    number: 92,
+    name: "do the right thing",
+    decade: "eighties",
+  },
+  {
+    number: 93,
+    name: "double indemnity",
+    decade: "forties",
+  },
+  {
+    number: 94,
+    name: "fantastic mr fox",
+    decade: "aughts",
+  },
+  {
+    number: 95,
+    name: "fear and loathing in las vegas",
+    decade: "nineties",
+  },
+  {
+    number: 96,
+    name: "first cow",
+    decade: "twenties",
+  },
+  {
+    number: 97,
+    name: "for a few dollars more",
+    decade: "sixties",
+  },
+  {
+    number: 98,
+    name: "get out",
+    decade: "tens",
+  },
+  {
+    number: 99,
+    name: "gia",
+    decade: "nineties",
+  },
+  {
+    number: 100,
+    name: "girlhood",
+    decade: "tens",
+  },
+  {
+    number: 101,
+    name: "heathers",
+    decade: "eighties",
+  },
+  {
+    number: 102,
+    name: "her",
+    decade: "tens",
+  },
+  {
+    number: 103,
+    name: "his girl friday",
+    decade: "forties",
+  },
+  {
+    number: 104,
+    name: "hustlers",
+    decade: "tens",
+  },
+  {
+    number: 105,
+    name: "in the mood for love",
+    decade: "aughts",
+  },
+  {
+    number: 106,
+    name: "kill bill volume 1",
+    name_1: "kill bill vol 1",
+    decade: "aughts",
+  },
+  {
+    number: 107,
+    name: "knives out",
+    decade: "tens",
+  },
+  {
+    number: 108,
+    name: "lady bird",
+    decade: "tens",
+  },
+  {
+    number: 109,
+    name: "little women",
+    decade: "tens",
+  },
+  {
+    number: 110,
+    name: "lost in translation",
+    decade: "aughts",
+  },
+  {
+    number: 111,
+    name: "mad max fury road",
+    decade: "tens",
+  },
+  {
+    number: 112,
+    name: "magnolia",
+    decade: "nineties",
+  },
+  {
+    number: 113,
+    name: "marie antoinette",
+    decade: "aughts",
+  },
+  {
+    number: 114,
+    name: "marriage story",
+    decade: "tens",
+  },
+  {
+    number: 115,
+    name: "midsommar",
+    decade: "tens",
+  },
+  {
+    number: 116,
+    name: "moonlight",
+    decade: "tens",
+  },
+  {
+    number: 117,
+    name: "moonrise kingdom",
+    decade: "tens",
+  },
+  {
+    number: 118,
+    name: "my neighbor totoro",
+    name_1: "tonari no totoro",
+    decade: "eighties",
+  },
+  {
+    number: 119,
+    name: "mysterious skin",
+    decade: "aughts",
+  },
+  {
+    number: 120,
+    name: "norma rae",
+    decade: "seventies",
+  },
+  {
+    number: 121,
+    name: "parasite",
+    decade: "tens",
+  },
+  {
+    number: 122,
+    name: "paris is burning",
+    decade: "nineties",
+  },
+  {
+    number: 123,
+    name: "perfect blue",
+    decade: "nineties",
+  },
+  {
+    number: 124,
+    name: "persona",
+    decade: "sixties",
+  },
+  {
+    number: 125,
+    name: "phantom thread",
+    decade: "tens",
+  },
+  {
+    number: 126,
+    name: "planet of the apes",
+    decade: "sixties",
+  },
+  {
+    number: 127,
+    name: "portrait of a lady on fire",
+    name_1: "portrait de la jeune fille en feu",
+    decade: "tens",
+  },
+  {
+    number: 128,
+    name: "portrait of a lady on fire",
+    name_1: "portrait de la jeune fille en feu",
+    decade: "tens",
+  },
+  {
+    number: 129,
+    name: "pulp fiction",
+    decade: "nineties",
+  },
+  {
+    number: 130,
+    name: "rain man",
+    decade: "eighties",
+  },
+  {
+    number: 131,
+    name: "rebel without a cause",
+    decade: "fifties",
+  },
+  {
+    number: 132,
+    name: "rough night",
+    decade: "tens",
+  },
+  {
+    number: 133,
+    name: "saving private ryan",
+    decade: "nineties",
+  },
+  {
+    number: 134,
+    name: "showgirls",
+    decade: "nineties",
+  },
+  {
+    number: 135,
+    name: "shrek",
+    decade: "aughts",
+  },
+  {
+    number: 136,
+    name: "sound of metal",
+    decade: "twenties",
+  },
+  {
+    number: 137,
+    name: "stand by me",
+    decade: "eighties",
+  },
+  {
+    number: 138,
+    name: "star wars a new hope",
+    name_1: "star wars episode iv",
+    name_2: "a new hope",
+    decade: "seventies",
+  },
+  {
+    number: 139,
+    name: "star wars the empire strikes back",
+    name_1: "star wars episode v",
+    name_2: "the empire strikes back",
+    decade: "eighties",
+  },
+  {
+    number: 140,
+    name: "steve jobs",
+    decade: "tens",
+  },
+  {
+    number: 141,
+    name: "superman",
+    decade: "seventies",
+  },
+  {
+    number: 142,
+    name: "suspiria",
+    decade: "tens",
+  },
+  {
+    number: 143,
+    name: "the big sleep",
+    decade: "forties",
+  },
+  {
+    number: 144,
+    name: "the darjeeling limited",
+    decade: "aughts",
+  },
+  {
+    number: 145,
+    name: "the florida project",
+    decade: "tens",
+  },
+  {
+    number: 146,
+    name: "the grand budapest hotel",
+    decade: "tens",
+  },
+  {
+    number: 147,
+    name: "the lighthouse",
+    decade: "tens",
+  },
+  {
+    number: 148,
+    name: "the lord of the rings the fellowship of the ring",
+    name_1: "the fellowship of the ring",
+    decade: "aughts",
+  },
+  {
+    number: 149,
+    name: "the lord of the rings the return of the king",
+    name_1: "the return of the king",
+    decade: "aughts",
+  },
+  {
+    number: 150,
+    name: "the lord of the rings the 2 towers",
+    name_1: "the 2 towers",
+    decade: "aughts",
+  },
+  {
+    number: 151,
+    name: "the lord of the rings the 2 towers",
+    name_1: "the 2 towers",
+    decade: "aughts",
+  },
+  {
+    number: 152,
+    name: "the matrix",
+    decade: "nineties",
+  },
+  {
+    number: 153,
+    name: "the miseducation of cameron post",
+    decade: "tens",
+  },
+  {
+    number: 154,
+    name: "the red shoes",
+    decade: "forties",
+  },
+  {
+    number: 155,
+    name: "the rocky horror picture show",
+    decade: "seventies",
+  },
+  {
+    number: 156,
+    name: "the shape of water",
+    decade: "tens",
+  },
+  {
+    number: 157,
+    name: "the shining",
+    decade: "eighties",
+  },
+  {
+    number: 158,
+    name: "the third man",
+    decade: "forties",
+  },
+  {
+    number: 159,
+    name: "to die for",
+    decade: "nineties",
+  },
+  {
+    number: 160,
+    name: "twilight",
+    decade: "aughts",
+  },
+  {
+    number: 161,
+    name: "twilight",
+    decade: "aughts",
+  },
+  {
+    number: 162,
+    name: "unbreakable",
+    decade: "aughts",
+  },
+  {
+    number: 163,
+    name: "uncut gems",
+    decade: "tens",
+  },
+  {
+    number: 164,
+    name: "us",
+    decade: "tens",
+  },
+  {
+    number: 165,
+    name: "us",
+    decade: "tens",
+  },
+  {
+    number: 166,
+    name: "west side story",
+    decade: "sixties",
+  },
+  {
+    number: 167,
+    name: "what's up doc",
+    decade: "seventies",
+  },
+  {
+    number: 168,
+    name: "whatever happened to baby jane",
+    decade: "sixties",
+  },
+  {
+    number: 169,
+    name: "y tu mama tambien",
+    name_1: "and your mother too",
+    decade: "nineties",
   },
 ];

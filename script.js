@@ -5,16 +5,18 @@ var imageUrl;
 var userGuess;
 var score = 0;
 
-var correctSound = new Audio("/sfx/ding-sound-effect_1.mp3");
+var correctSound = new Audio("/sfx/correct.wav");
 var incorrectSound = new Audio("/sfx/fail-trumpet-01.mp3");
 var textInput = document.getElementById("text-input");
 var revealAnswer = document.getElementById("skip");
 var countdown = document.getElementById("countdown");
 var endGameText = document.getElementById("end-game-text");
+var playAgain = document.getElementById("play-again");
 
 var storedActiveDecades = []; //retrieved array from local storage
-var activeDecades = [];
+var activeDecades = []; // pretty much a local variable for index.html -- is reset everytime index.html is loaded
 var stillsTracker = [];
+var roundTracker = []; //keeps track of when to end round
 
 var validIndexes = []; //made as a global variable so that length can be used to check if tracker should be refreshed
 
@@ -40,7 +42,6 @@ window.addEventListener(
 
 //decade select
 function setDecade(decade) {
-  console.log(decade.classList);
   if (decade.classList.contains("selected")) {
     unsetDecade(decade);
   } else if (!decade.classList.contains("selected")) {
@@ -49,12 +50,21 @@ function setDecade(decade) {
     console.log(activeDecades);
     localStorage.setItem("active-decades", JSON.stringify(activeDecades));
   }
+  if (activeDecades.length == 0) {
+    resetActiveDecades();
+  }
 }
 
 function unsetDecade(decade) {
   decade.classList.remove("selected");
   activeDecades.splice(activeDecades.indexOf(decade.id), 1); // removes decade from active decades list
   localStorage.setItem("active-decades", activeDecades);
+  console.log(activeDecades);
+}
+
+function resetActiveDecades() {
+  activeDecades = [];
+  localStorage.setItem("active-decades", JSON.stringify(activeDecades));
 }
 
 //gets the movie name -- can be called by movieName.name
@@ -73,18 +83,43 @@ function newMovie(number) {
   getMovieName(number);
   document.getElementById("movie-still").src = imageUrl;
   console.log(movieName.name);
+  roundTracker.push(1);
+  console.log(roundTracker);
   textInput.innerText = "";
 }
 
 function startUp() {
+  typoCheck();
   storedActiveDecades = JSON.parse(localStorage.getItem("active-decades"));
-  endGameText.classList.add("notransition");
-  endGameText.style.opacity = "0";
-  var z = getValidIndex();
-  newMovie(z);
-  stillsTracker.push(z);
-  console.log("tracker length: " + stillsTracker.length);
-  console.log("total num movies: " + movieNames.length);
+  if (storedActiveDecades.length >= 1) {
+    endGameText.classList.add("notransition");
+    endGameText.style.opacity = "0";
+    endGameText.style.cursor = "default";
+    playAgain.style.cursor = "default";
+    playAgain.style.pointerEvents = "none"; //disables clicking the invisible play again text in-game
+    console.log(storedActiveDecades);
+    var z = getValidIndex();
+    newMovie(z);
+    stillsTracker.push(z);
+  } else if (storedActiveDecades.length == 0) {
+    storedActiveDecades = [
+      "thirties",
+      "fourties",
+      "fifties",
+      "sixties",
+      "seventies",
+      "eighties",
+      "nineties",
+      "aughts",
+      "tens",
+      "twenties",
+    ];
+    endGameText.classList.add("notransition");
+    endGameText.style.opacity = "0";
+    var z = getValidIndex();
+    newMovie(z);
+    stillsTracker.push(z);
+  }
 }
 
 //gets random index of a movie from selected decades
@@ -98,17 +133,28 @@ function getValidIndex() {
       validIndexes.push(movie.number);
     });
   }
-  console.log(validIndexes);
+  console.log(storedActiveDecades);
+  console.log(
+    "valid indexes: " +
+      validIndexes +
+      "\n" +
+      "\n" +
+      "===================" +
+      "\n" +
+      "END OF GENERAL DEBUG"
+  );
   var i = validIndexes[Math.floor(Math.random() * validIndexes.length)];
-  console.log(i);
+  console.log("selected index: " + i);
   return i;
 }
 
 //updates image tracker for new image
 function updateTracker() {
-  if (stillsTracker.length % 10 == 0) {
+  if (roundTracker.length % 10 == 0) {
     endGameText.classList.remove("notransition");
     endGameText.style.opacity = "1";
+    playAgain.style.cursor = "pointer";
+    playAgain.style.pointerEvents = "initial";
     document.getElementById("score").innerHTML =
       "Score: " + (score / 10) * 100 + "%";
     textInput.disabled = true;
@@ -121,6 +167,8 @@ function updateTracker() {
 //checks if the movie still has been shown already
 function checkStillHistory(val) {
   var n = stillsTracker.includes(val, 0);
+  1;
+  console.log(stillsTracker);
   console.log(n);
   if (!n) {
     //if this movie hasn't been shown:
@@ -141,8 +189,13 @@ function checkStillHistory(val) {
 
 //checks answer whenever a someone types
 textInput.onkeyup = function () {
-  var userGuess = textInput.value.toLowerCase();
-  if (userGuess == movieName.name || userGuess == movieName.name_1) {
+  var userGuess = textInput.value.toLowerCase(); // fixes capitalization errors
+  userGuess = userGuess.trim(); // removes start and end spaces
+  if (
+    userGuess == movieName.name ||
+    userGuess == movieName.name_1 ||
+    userGuess == movieName.name_2
+  ) {
     correctSound.currentTime = 0;
     correctSound.play();
     score = score + 1;
@@ -170,7 +223,7 @@ revealAnswer.onclick = function () {
 };
 
 //play again button
-document.getElementById("play-again").onclick = function () {
+playAgain.onclick = function () {
   score = 0;
   document.getElementById("number-score").innerHTML = score + "/10";
   textInput.value = "";
@@ -183,6 +236,71 @@ document.getElementById("play-again").onclick = function () {
   console.log("tracker: " + stillsTracker.length);
 };
 
-//function calls
+//check for typos in movie list
+
+function typoCheck() {
+  var allMovies = [];
+  var thirties = [];
+  var forties = [];
+  var fifties = [];
+  var sixties = [];
+  var seventies = [];
+  var eighties = [];
+  var nineties = [];
+  var aughts = [];
+  var tens = [];
+  var twenties = [];
+  for (var i = 0; i < movieNames.length; i++) {
+    thirties = movieNames.filter((movie) => movie.decade === "thirties");
+    forties = movieNames.filter((movie) => movie.decade === "forties");
+    fifties = movieNames.filter((movie) => movie.decade === "fifties");
+    sixties = movieNames.filter((movie) => movie.decade === "sixties");
+    seventies = movieNames.filter((movie) => movie.decade === "seventies");
+    eighties = movieNames.filter((movie) => movie.decade === "eighties");
+    nineties = movieNames.filter((movie) => movie.decade === "nineties");
+    aughts = movieNames.filter((movie) => movie.decade === "aughts");
+    tens = movieNames.filter((movie) => movie.decade === "tens");
+    twenties = movieNames.filter((movie) => movie.decade === "twenties");
+  }
+  console.log("GENERAL DEBUGGING" + "\n" + "===================" + "\n");
+  console.log(
+    "decades sum: " +
+      (thirties.length +
+        forties.length +
+        fifties.length +
+        sixties.length +
+        seventies.length +
+        eighties.length +
+        nineties.length +
+        aughts.length +
+        tens.length +
+        twenties.length)
+  );
+  console.log("total num movies: " + movieNames.length);
+  console.log(
+    "spelling check: " +
+      (movieNames.length ==
+        thirties.length +
+          forties.length +
+          fifties.length +
+          sixties.length +
+          seventies.length +
+          eighties.length +
+          nineties.length +
+          aughts.length +
+          tens.length +
+          twenties.length)
+  );
+  console.log("num thirties: " + thirties.length);
+  console.log("num forties: " + forties.length);
+  console.log("num fifties: " + fifties.length);
+  console.log("num sixties: " + sixties.length);
+  console.log("num seventies: " + seventies.length);
+  console.log("num eighties: " + eighties.length);
+  console.log("num nineties: " + nineties.length);
+  console.log("num aughts: " + aughts.length);
+  console.log("num tens: " + tens.length);
+  console.log("num twenties: " + twenties.length);
+}
+
 startUp();
-console.log(storedActiveDecades);
