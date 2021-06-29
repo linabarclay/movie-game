@@ -50,15 +50,12 @@ function setDecade(decade) {
     console.log(activeDecades);
     localStorage.setItem("active-decades", JSON.stringify(activeDecades));
   }
-  if (activeDecades.length == 0) {
-    resetActiveDecades();
-  }
 }
 
 function unsetDecade(decade) {
   decade.classList.remove("selected");
   activeDecades.splice(activeDecades.indexOf(decade.id), 1); // removes decade from active decades list
-  localStorage.setItem("active-decades", activeDecades);
+  localStorage.setItem("active-decades", JSON.stringify(activeDecades));
   console.log(activeDecades);
 }
 
@@ -85,10 +82,12 @@ function newMovie(number) {
   console.log(movieName.name);
   roundTracker.push(1);
   console.log(roundTracker);
+  textInput.focus();
   textInput.innerText = "";
 }
 
 function startUp() {
+  textInput.focus(); //automatically puts cursor in text input
   typoCheck();
   storedActiveDecades = JSON.parse(localStorage.getItem("active-decades"));
   if (storedActiveDecades.length >= 1) {
@@ -99,6 +98,17 @@ function startUp() {
     playAgain.style.pointerEvents = "none"; //disables clicking the invisible play again text in-game
     console.log(storedActiveDecades);
     var z = getValidIndex();
+    console.log("num of valid indexes: " + validIndexes.length);
+    console.log(
+      "valid indexes: " +
+        validIndexes +
+        "\n" +
+        "\n" +
+        "===================" +
+        "\n" +
+        "END OF GENERAL DEBUG"
+    );
+    console.log("selected index: " + z);
     newMovie(z);
     stillsTracker.push(z);
   } else if (storedActiveDecades.length == 0) {
@@ -117,6 +127,17 @@ function startUp() {
     endGameText.classList.add("notransition");
     endGameText.style.opacity = "0";
     var z = getValidIndex();
+    console.log("num of valid indexes: " + validIndexes.length);
+    console.log(
+      "valid indexes: " +
+        validIndexes +
+        "\n" +
+        "\n" +
+        "===================" +
+        "\n" +
+        "END OF GENERAL DEBUG"
+    );
+    console.log("selected index: " + z);
     newMovie(z);
     stillsTracker.push(z);
   }
@@ -133,18 +154,8 @@ function getValidIndex() {
       validIndexes.push(movie.number);
     });
   }
-  console.log(storedActiveDecades);
-  console.log(
-    "valid indexes: " +
-      validIndexes +
-      "\n" +
-      "\n" +
-      "===================" +
-      "\n" +
-      "END OF GENERAL DEBUG"
-  );
+
   var i = validIndexes[Math.floor(Math.random() * validIndexes.length)];
-  console.log("selected index: " + i);
   return i;
 }
 
@@ -291,7 +302,7 @@ function typoCheck() {
           tens.length +
           twenties.length)
   );
-  console.log("num thirties: " + thirties.length);
+  /*console.log("num thirties: " + thirties.length);
   console.log("num forties: " + forties.length);
   console.log("num fifties: " + fifties.length);
   console.log("num sixties: " + sixties.length);
@@ -300,7 +311,7 @@ function typoCheck() {
   console.log("num nineties: " + nineties.length);
   console.log("num aughts: " + aughts.length);
   console.log("num tens: " + tens.length);
-  console.log("num twenties: " + twenties.length);
+  console.log("num twenties: " + twenties.length);*/
 }
 
 startUp();
