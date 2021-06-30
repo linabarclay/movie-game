@@ -8,11 +8,11 @@
       rel="icon"
       href="/images/movie-symbol-of-video-camera_icon-icons.com_72981.ico"
     />
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
     <title>Movie Guessing Game!</title>
   </head>
 
-  <body onload="resetActiveDecades()">
+  <body onload="resetStuff()">
     <h1>Lina's Movie Game</h1>
     <h2>Choose Your Decade(s)</h2>
     <div class="decade-selection">
@@ -117,7 +117,7 @@
 
     <div id="time-switch" class="toggle-time">
       <label class="switch">
-        <input type="checkbox" />
+        <input id="timer" type="checkbox" onclick="timedOnOff()" />
         <span class="slider"></span>
       </label>
     </div>
@@ -127,7 +127,7 @@
       src="/images/icons8-hourglass-96.png"
       alt="hourglass"
     />
-    <script type="application/javascript" src="/movies.js"></script>
-    <script type="application/javascript" src="/script.js"></script>
+    <script type="application/javascript" src="/js/movies.js"></script>
+    <script type="application/javascript" src="/js/script.js"></script>
   </body>
 </html>
