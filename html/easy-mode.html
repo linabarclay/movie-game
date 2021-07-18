@@ -5,8 +5,76 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lina's Movie Game | Easy Mode</title>
+    <link rel="stylesheet" href="/css/game-easy.css" />
+    <link
+      rel="icon"
+      href="/images/movie-symbol-of-video-camera_icon-icons.com_72981.ico"
+    />
   </head>
   <body>
-    <h1>under construction</h1>
+    <nav>
+      <a class="home" href="/html/index.html"
+        ><img src="/images/home_icon-icons.com_73532.ico" alt="home"
+      /></a>
+      <h2>What's this movie?</h2>
+      <div class="audio">
+        <img
+          src="/images/unmuted.png"
+          alt="unmute"
+          id="audio"
+          onclick="mute()"
+        />
+      </div>
+    </nav>
+
+    <div class="main-section">
+      <img id="movie-still" class="still" src="" alt="movie-still" />
+      <div id="end-game-text">
+        <p>Game Over</p>
+        <p id="score"></p>
+        <div class="time">
+          <p id="time"></p>
+          <p id="best-time"></p>
+        </div>
+        <p id="play-again"><i>play again</i></p>
+      </div>
+    </div>
+
+    <p id="countdown"></p>
+
+    <div class="controls">
+      <div id="timer"></div>
+      <div>
+        <label class="container" id="movie1"
+          >Movie 1
+          <input type="radio" checked name="movies" />
+          <span class="checkmark" id="1"></span>
+        </label>
+        <label class="container" id="movie2"
+          >Movie 2
+          <input type="radio" checked name="movies" />
+          <span class="checkmark" id="2"></span>
+        </label>
+        <label class="container" id="movie3"
+          >Movie 3
+          <input type="radio" checked name="movies" />
+          <span class="checkmark" id="3"></span>
+        </label>
+        <label class="container" id="movie4"
+          >Movie 4
+          <input type="radio" checked name="movies" />
+          <span class="checkmark" id="4"></span>
+        </label>
+      </div>
+      <button id="submit">
+        submit <br />
+        + <br />
+        reveal answer
+      </button>
+    </div>
+    <h3>SCORE:</h3>
+    <h3 id="number-score">0/10</h3>
+    <script type="application/javascript" src="/js/movies.js"></script>
+    <script type="application/javascript" src="/js/script-easy.js"></script>
   </body>
 </html>

@@ -79,6 +79,7 @@ function timedOnOff() {
   }
 }
 
+//called by html
 function resetStuff() {
   activeDecades = [];
   localStorage.setItem("active-decades", JSON.stringify(activeDecades));
@@ -137,7 +138,7 @@ function startUp() {
         "\n" +
         "END OF GENERAL DEBUG"
     );
-    console.log("selected index: " + z);
+
     newMovie(z);
     stillsTracker.push(z);
   } else if (storedActiveDecades.length == 0) {
@@ -185,6 +186,7 @@ function getValidIndex() {
   }
 
   var i = validIndexes[Math.floor(Math.random() * validIndexes.length)];
+  console.log("selected index: " + i);
   return i;
 }
 
@@ -207,7 +209,11 @@ function updateTracker() {
         console.log("new best time");
         document.getElementById("best-time").innerHTML = "New best time!";
         localStorage.setItem("best-time", userTime);
+      } else if (userTime > localStorage.getItem("best-time") || score !== 10) {
+        document.getElementById("best-time").innerHTML =
+          "Best time: " + localStorage.getItem("best-time");
       } else {
+        localStorage.setItem("best-time", userTime);
         document.getElementById("best-time").innerHTML =
           "Best time: " + localStorage.getItem("best-time");
       }
@@ -221,7 +227,6 @@ function updateTracker() {
 //checks if the movie still has been shown already
 function checkStillHistory(val) {
   var n = stillsTracker.includes(val, 0);
-  1;
   console.log(stillsTracker);
   console.log(n);
   if (!n) {
@@ -291,7 +296,7 @@ function mute() {
 textInput.onkeyup = function () {
   var userGuess = textInput.value.toLowerCase(); // fixes capitalization errors
   userGuess = userGuess.trim(); // removes start and end spaces
-  userGuess = userGuess.replace(/[^a-zA-Z ]/g, ""); // removes special characters
+  userGuess = userGuess.replace(/[^a-zA-Z 0-9]/g, ""); // removes special characters
   if (
     userGuess == movieName.name ||
     userGuess == movieName.name_1 ||
@@ -307,6 +312,7 @@ textInput.onkeyup = function () {
 
 //reveals correct answer and moves on to the next question
 revealAnswer.onclick = function () {
+  revealAnswer.style.pointerEvents = "none"; // makes it so you can't double click
   incorrectSound.currentTime = 0;
   incorrectSound.play();
   textInput.value = movieName.name;
@@ -316,6 +322,7 @@ revealAnswer.onclick = function () {
       clearInterval(nextPictureCountdown);
       countdown.innerHTML = "";
       updateTracker();
+      revealAnswer.style.pointerEvents = "auto"; // reactivates button for next image
     } else {
       countdown.innerHTML = "next image in " + timeLeft + " seconds...";
     }
@@ -325,16 +332,14 @@ revealAnswer.onclick = function () {
 
 //play again button
 playAgain.onclick = function () {
+  endGameText.classList.add("notransition");
   score = 0;
   document.getElementById("number-score").innerHTML = score + "/10";
   textInput.value = "";
   endGameText.style.opacity = "0";
   textInput.disabled = false;
   z = getValidIndex();
-  newMovie(z);
-  stillsTracker.push(z);
-  console.log("index = " + z);
-  console.log("tracker: " + stillsTracker.length);
+  checkStillHistory(z);
   if (storedTimerSettings == 1) {
     timerOn();
   }

@@ -1,0 +1,199 @@
+html {
+  font-size: 62.5%;
+}
+* {
+  font-family: "Gill Sans", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgb(174, 229, 243);
+}
+
+h2 {
+  margin: 5rem 0rem 2rem 0rem;
+  font-size: 3rem;
+  text-align: center;
+  user-select: none;
+}
+
+h3 {
+  position: absolute;
+  font-size: 4rem;
+  font-weight: lighter;
+  top: 81rem;
+  right: 50%;
+  user-select: none;
+}
+
+#number-score {
+  left: 51%;
+  font-weight: bold;
+}
+
+.main-section {
+  position: relative;
+}
+
+.still {
+  min-height: 45rem;
+  max-height: 50rem;
+  max-width: 88.9rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  outline: 0.5rem solid white;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+#end-game-text {
+  position: absolute;
+  left: 50%;
+  top: 4rem;
+  transform: translateX(-50%);
+  color: white;
+  background-color: rgb(0, 0, 0, 0.6);
+  font-size: 6rem;
+  transition: 2s;
+  text-align: center;
+}
+
+.time {
+  font-size: 4rem;
+  color: rgb(227, 174, 243);
+}
+
+.notransition {
+  transition: none !important;
+}
+
+#play-again {
+  cursor: pointer;
+  color: rgb(174, 229, 243);
+  text-align: center;
+}
+
+.controls {
+  position: absolute;
+  left: 50%;
+  top: 65rem;
+  transform: translateX(-50%);
+}
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: rgb(248, 248, 248);
+  border-radius: 50%;
+}
+
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.container input:checked ~ .checkmark {
+  background-color: brown;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.container .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+#submit {
+  position: absolute;
+  transform: translateY(-100%);
+  left: 119%;
+  height: 15.5rem;
+  width: 8rem;
+  font-size: 2rem;
+  padding: 0.2rem;
+  border-radius: 0.4rem;
+  border: 0.2rem solid brown;
+  background-color: white;
+  cursor: pointer;
+}
+
+#submit:hover {
+  background-color: rgb(223, 147, 147);
+}
+
+#timer {
+  position: absolute;
+  font-size: 4.5rem;
+  transform: translateX(-120%);
+  top: -0.5rem;
+  text-align: left;
+}
+
+#countdown {
+  position: absolute;
+  text-align: center;
+  font-size: 2rem;
+  top: 61.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.home img {
+  position: absolute;
+  height: 5rem;
+  top: 4rem;
+  left: 50%;
+  transform: translateX(-500%);
+}
+
+.audio img {
+  position: absolute;
+  cursor: pointer;
+  height: 4rem;
+  top: 5rem;
+  left: 50%;
+  transform: translateX(490%);
+}
+
+img {
+  user-select: none;
+}
