@@ -1,11 +1,11 @@
-var imageDirectory = "/stills/";
+var imageDirectory = "stills/";
 
 var movieName;
 var imageUrl;
 var score = 0;
 
-var correctSound = new Audio("/sounds/correct.wav");
-var incorrectSound = new Audio("/sounds/fail-trumpet-01.mp3");
+var correctSound = new Audio("sounds/correct.wav");
+var incorrectSound = new Audio("sounds/fail-trumpet-01.mp3");
 
 var revealAnswer = document.getElementById("submit");
 var countdown = document.getElementById("countdown");
@@ -302,12 +302,12 @@ function timerOn() {
 function mute() {
   var audio = document.getElementById("audio");
   if (audio.classList.contains("muted")) {
-    audio.src = "/images/unmuted.png";
+    audio.src = "images/unmuted.png";
     correctSound.muted = false;
     incorrectSound.muted = false;
     audio.classList.remove("muted");
   } else if (!audio.classList.contains("muted")) {
-    audio.src = "/images/muted.png";
+    audio.src = "images/muted.png";
     correctSound.muted = true;
     incorrectSound.muted = true;
     audio.classList.add("muted");
