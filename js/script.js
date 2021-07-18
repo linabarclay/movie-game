@@ -1,12 +1,12 @@
-var imageDirectory = "/stills/";
+var imageDirectory = "stills/";
 
 var movieName;
 var imageUrl;
 var userGuess;
 var score = 0;
 
-var correctSound = new Audio("/sounds/correct.wav");
-var incorrectSound = new Audio("/sounds/fail-trumpet-01.mp3");
+var correctSound = new Audio("sounds/correct.wav");
+var incorrectSound = new Audio("sounds/fail-trumpet-01.mp3");
 var textInput = document.getElementById("text-input");
 var revealAnswer = document.getElementById("skip");
 var countdown = document.getElementById("countdown");
