@@ -328,6 +328,7 @@ revealAnswer.onclick = function () {
   } else {
     incorrectSound.currentTime = 0;
     incorrectSound.play();
+    correctAnswer.childNodes[1].checked = true;
     var timeLeft = 3;
     var nextPictureCountdown = setInterval(function () {
       if (timeLeft <= 0) {
