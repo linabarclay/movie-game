@@ -83,8 +83,9 @@ function timedOnOff() {
 function resetStuff() {
   activeDecades = [];
   localStorage.setItem("active-decades", JSON.stringify(activeDecades));
-  timerOnOff = 0;
+  timerOnOff = 1;
   localStorage.setItem("timer-check", timerOnOff);
+  document.getElementById("timer").checked = true;
 }
 
 //gets the movie name -- can be called by movieName.name

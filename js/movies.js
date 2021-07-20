@@ -1510,7 +1510,7 @@ var movieNames = [
     number: 298,
     name: "three colors white",
     name_1: "trois couleurs blanc",
-    decade: "fifties",
+    decade: "nineties",
   },
   {
     number: 299,
